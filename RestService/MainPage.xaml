@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RestService"
+             x:Class="RestService.MainPage">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Margin="10" Text="Json Parsing" FontSize="25"/>
+            <ListView x:Name="listviewCountry" Grid.Row="1" HorizontalOptions="FillAndExpand" HasUnevenRows="True" ItemSelected="listviewCountry_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid HorizontalOptions="FillAndExpand" Padding="10">
+                                <Grid.RowDefinitions>
+                                    <Grid.RowDefination Height="Auto"/>
+                                    <Grid.RowDefination Height="Auto"/>
+                                    <Grid.RowDefination Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding name}" HorizontalOptions="StartAndExpand" Grid.Row="0" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label Text="{Binding alpha2_code}" HorizontalOptions="StartAndExpand" Grid.Row="1" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label Text="{Binding alpha3_code}" HorizontalOptions="StartAndExpand" Grid.Row="2" TextColor="Blue" FontAttributes="Bold"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <ActivityIndicator x:Name="ProgressLoader" IsRunning="True"/>
+    </Grid>
+</ContentPage>
